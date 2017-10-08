@@ -71,12 +71,13 @@ namespace TechdaysBot.Dialogs
             }
         }
 
+        [LuisIntent("Where Is Techdays")]
         public async Task WhereIsTechdays(IDialogContext context, LuisResult result)
         {
             var message = context.MakeMessage() as IMessageActivity;
             message.ChannelData = JObject.FromObject(new
             {
-                action = new { type = "LaunchUri", uri = "bingmaps:?where=Paris" }
+                action = new { type = "LaunchUri", uri = "bingmaps:?where=amsterdam" }
             });
             await context.PostAsync(message);
         }
