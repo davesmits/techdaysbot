@@ -17,9 +17,15 @@ namespace TechdaysBot
         [BotAuthentication]
         public virtual async Task<HttpResponseMessage> Post([FromBody]Activity activity)
         {
+            //var connector = new ConnectorClient(new Uri(activity.ServiceUrl));
             if (activity != null && activity.GetActivityType() == ActivityTypes.Message)
             {
-                await Conversation.SendAsync(activity, () => new RootDialog());
+                //var response = activity.CreateReply();
+                // response.Speak = "Hello";
+                //response.Text = "hi";
+                //connector.Conversations.ReplyToActivity(response);
+
+                 await Conversation.SendAsync(activity, () => new RootDialog());
             }
             else
             {
